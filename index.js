@@ -56,7 +56,7 @@ function removeFromCart(item) {
 }
 
 function placeOrder(cardNumber) {
-  if (cardNumber) {
+  if (cardNumber && cardNumber != 'undefined') {
     let final = total();
     cart = [];
     return `Your total cost is $${final}, which will be charged to the card ${cardNumber}.`;
