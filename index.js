@@ -10,19 +10,48 @@ function setCart(c) {
 }
 
 function addToCart(item) {
- // write your code here
+  console.log(item);
+  let price = Math.floor(Math.random() * (100 - 0) + 0);
+  let itemsInCart = {itemName: item, itemPrice: price};
+  cart.push(itemsInCart);
+  return `${item} has been added to your cart.`
 }
 
 function viewCart() {
-  // write your code here
+  let statement = [];
+  let lastItem = cart.length-1;
+  if (cart.length > 1) {
+    for (var i = 0; i < cart.length - 1; i++) {
+      let current = `${cart[i].itemName} at $${cart[i].itemPrice}`;
+      statement.push(current);
+    }
+    let fullCart = statement.join(', ');
+    return `In your cart, you have ${fullCart}, and ${cart[lastItem].itemName} at $${cart[lastItem].itemPrice}.`;
+  } else if (cart.length == 1){
+    return `In your cart, you have ${cart[0].itemName} at $${cart[0].itemPrice}.`;
+  } else {
+    return 'Your shopping cart is empty.'
+  }
+
 }
 
 function total() {
-  // write your code here
+  let current = 0;
+  for (var i = 0; i < cart.length; i++) {
+    current = current + cart[i].itemPrice
+  }
+  return current;
 }
 
 function removeFromCart(item) {
-  // write your code here
+  console.log(item);
+  for (var i = 0; i < cart.length; i++) {
+    if (cart[i].itemName = item) {
+      cart.splice([i]);
+    } else {
+      return 'This item is not in your cart.'
+    }
+  }
 }
 
 function placeOrder(cardNumber) {
