@@ -46,7 +46,7 @@ function total() {
 function removeFromCart(item) {
   console.log(item);
   for (var i = 0; i < cart.length; i++) {
-    let currentItem = cart[i].itemName;
+    let currentItem = cart[i];
     if (currentItem && currentItem == item) {
       cart.splice([i]);
     } else {
